@@ -1,2 +1,2 @@
-# Color-Gallery
+# Color Gallery WordPress
 Color Gallery WordPress Plugin
