@@ -10,3 +10,13 @@ Text Domain: color-gallery
 Domain Path: /languages
 */
 
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	exit;
+}
+
+define( 'CG__VERSION', 0.1 );
+define( 'CG__URL', plugin_dir_url( __FILE__ ) );
+define( 'CG__PATH', plugin_dir_path( __FILE__ ) );
+
+require_once CG__PATH . '/includes/loader.php';
