@@ -72,6 +72,7 @@ class CG_Admin {
 		$title = self::cg_filter( $_POST, 'cg_title' );
 		$action = self::cg_filter( $_GET, 'action' );
 		$id = self::cg_filter( $_GET, 'id' );
+		$images = self::cg_filter( $_POST, 'cg_images' );
 
 		if ( ! $save || ! $title || ! $action )
 			return;
@@ -85,18 +86,48 @@ class CG_Admin {
 
 			$gallery = wp_insert_post( $params );
 
+			self::cg_save_gallery_images( $images, $gallery );
+
 			$redirect = admin_url() . 'admin.php?page=color-gallery&action=edit&id=' . $gallery;
 
 			if ( $gallery > 0 ) {
 				exit( wp_redirect( $redirect ) );
 			}
 		} else if ( $action == 'edit' && $id ) {
+			self::cg_save_gallery_images( $images, $id );
 			$gallery = get_post( $id );
 			$gallery->post_title = $title;
 			wp_update_post( $gallery );
 		} else {
 			return false;
 		}
+	}
+
+	public function cg_save_gallery_images( $imgs, $gallery_id ) {
+		if ( !$imgs ) {
+			return;
+		}
+
+		$imgs = json_decode( $imgs );
+		$update = update_post_meta( $gallery_id, 'cg_gallery_images', $imgs );
+		return $update;
+	}
+
+	public function cg_get_gallery_images() {
+		$action = self::cg_filter( $_GET, 'action', 'edit' );
+		$id = self::cg_filter( $_GET, 'id' );
+		if ( ! $action || ! $id ) {
+			return false;
+		}
+		$images = get_post_meta( $id, 'cg_gallery_images', true );
+		if ( is_array( $images ) && !empty( $images ) ) {
+			$images_html = '';
+			foreach ( $images as $image ) {
+				$images_html .= '<img data-attach-id="'. $image .'" class="cg-images-item" src="' . wp_get_attachment_url( $image ) . '">';
+			}
+			return $images_html;
+		}
+		return false;
 	}
 
 	public function cg_add_menu_page() {

@@ -1,6 +1,7 @@
 <?php 
 $gallery = CG_Admin::cg_get_gallery();
 $title = $gallery && $gallery->post_title ? $gallery->post_title : '';
+$images = CG_Admin::cg_get_gallery_images() ? CG_Admin::cg_get_gallery_images() : '<span class="gallery-empty">' . _x( 'NO IMAGES', 'color-gallery' ) . '</span>';
 ?>
 <div class="cg-container">
 	<h3><?php _e( $gallery ? 'Edit Gallery' : 'Add New Gallery', 'color-gallery' ); ?></h3>
@@ -11,7 +12,8 @@ $title = $gallery && $gallery->post_title ? $gallery->post_title : '';
 		</div>
 		<input type="text" class="cg-field" name="cg_title" placeholder="<?php _e( 'Gallery Title', 'color-gallery' ); ?>" value="<?php echo $title; ?>" required>
 		<div class="cg-images-list">
-			<span class="gallery-empty"><?php _e( 'NO IMAGES', 'color-gallery' ); ?></span>	
+			<?php echo $images; ?>
 		</div>
+		<input type="hidden" name="cg_images" class="cg-images" value="">
 	</form>
 </div>
