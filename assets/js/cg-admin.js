@@ -1,5 +1,6 @@
 (function( $ ) {
  
+ 	//ADD NEW GALLERY
     $(function() {
         //$('.cg-color-field').wpColorPicker();
 	    $('#cg-add-images').click(function(e) {
@@ -22,5 +23,8 @@
 	    	e.preventDefault();
 	    })
     });
+
+    //
+    
      
 })( jQuery );

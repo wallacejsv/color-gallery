@@ -90,8 +90,10 @@ class CG_Admin {
 			if ( $gallery > 0 ) {
 				exit( wp_redirect( $redirect ) );
 			}
-		} else if ( $action == 'edit' ) {
+		} else if ( $action == 'edit' && $id ) {
 			$gallery = get_post( $id );
+			$gallery->post_title = $title;
+			wp_update_post( $gallery );
 		} else {
 			return false;
 		}
