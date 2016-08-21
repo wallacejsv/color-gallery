@@ -1,0 +1,38 @@
+/** BASE **/
+
+.cg-container {
+	width: 500px;
+}
+
+.cg-container .cg-field {
+	width: 100%;
+	display: block;
+	height: 30px;
+	margin-bottom: 15px;
+}
+
+.cg-actions {
+	margin-bottom: 20px;
+}
+
+/** ADMIN -  ADD NEW GALLERY **/
+
+.cg-images-list {
+	min-height: 300px;
+    border: dashed #9c9c9c;
+    padding: 10px;
+}
+
+.cg-images-list .gallery-empty {
+	margin: auto;
+    display: table;
+    margin-top: 138px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cg-images-item {
+	width: 47%;
+	margin-left: 10px;
+	cursor: pointer;
+}
