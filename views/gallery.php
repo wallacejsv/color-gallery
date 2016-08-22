@@ -33,6 +33,7 @@ $argsLoop = new WP_Query($args);
 		<?php
 
 		endwhile;
+		wp_reset_query();
 	?>
 
 	<?php previous_posts_link('&laquo; Newer') ?>
