@@ -36,3 +36,26 @@
 	margin-left: 10px;
 	cursor: pointer;
 }
+
+/** GALLERY LIST **/
+
+.gallery {
+    display: inline-block;
+    margin-top: 40px;
+    box-sizing: border-box;	
+}
+
+tr.color-galley h1 {
+	font-size: 20px;
+}
+
+.gallery th.collor {
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;	
+}
+
+.gallery th.collor span {
+    font-size: 20px;
+    padding: 0px 0px 0px 10px;
+}
