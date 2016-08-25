@@ -46,16 +46,27 @@
 }
 
 tr.color-galley h1 {
-	font-size: 20px;
+    font-size: 17px;
+    display: block;
+}
+
+.gallery th.collor-title {
+    width: 50%;
 }
 
 .gallery th.collor {
-    width: 100%;
+    width: 16%;
     padding-top: 15px;
-    padding-bottom: 15px;	
+    padding-bottom: 15px;
+    padding-right: 70px;
 }
 
-.gallery th.collor span {
+
+.gallery th.collor span, .collor-title span {
     font-size: 20px;
     padding: 0px 0px 0px 10px;
+}
+
+td.collor-inf h1 {
+    font-size: 15px;
 }
